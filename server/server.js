@@ -3,7 +3,9 @@ const cors = require("cors");
 
 const db = require("./models");
 const Role = db.role;
+const config = require("./config/db.config")
 
+require('dotenv').config()
 
 const app = express();
 
@@ -25,7 +27,7 @@ app.get("/", (req, res) => {
 });
 
 db.mongoose
-    .connect(`mongodb+srv://gjsim:7sb2a6Bf64uwRrLg@game.78i3nlw.mongodb.net/?retryWrites=true&w=majority`, {
+    .connect(config.DB_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
