@@ -1,3 +1,4 @@
+require('dotenv').config()
 module.exports = {
-    secret: "mojo-super-secret-secret"
+    secret: process.env.SECRET
 };
