@@ -12,7 +12,7 @@ exports.addGame = async (req, res) => {
             rating: req.body.rating
         };
         if (game.rating < 0 || game.rating > 100) {
-            res.status(500).send({ msg: "Rating must be [0, 100]." });
+            return res.status(500).send({ msg: "Rating must be [0, 100]." });
         }
         let userId = req.userId;
         const user = await User.findByIdAndUpdate(
